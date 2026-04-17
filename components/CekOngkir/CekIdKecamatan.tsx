@@ -89,7 +89,7 @@ export default function CekIdKecamatan() {
       </form>
 
       {/* Hasil Single */}
-      {result && !Array.isArray(results) && results.length === 0 && (
+      {result && results.length === 0 && (
         <div className="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg">
           {result.id === "error" ? (
             <p className="text-red-600 dark:text-red-400">Kecamatan tidak ditemukan</p>
