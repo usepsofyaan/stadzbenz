@@ -44,7 +44,7 @@ export default function CheckoutPage() {
             {items.map((item) => (
               <div key={item.id} className="bg-white dark:bg-zinc-800 rounded-lg p-4 flex gap-4 shadow">
                 {/* Item Image */}
-                <div className="w-24 h-24 bg-gradient-to-br from-orange-100 to-orange-200 dark:from-zinc-700 dark:to-zinc-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-accent-100 to-accent-200 dark:from-zinc-700 dark:to-zinc-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <div className="text-4xl">🍲</div>
                 </div>
 
@@ -52,7 +52,7 @@ export default function CheckoutPage() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg text-zinc-900 dark:text-white">{item.name}</h3>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">{item.category}</p>
-                  <p className="font-bold text-orange-600 dark:text-orange-400">Rp {item.price.toLocaleString("id-ID")}</p>
+                  <p className="font-bold text-accent-600 dark:text-accent-400">Rp {item.price.toLocaleString("id-ID")}</p>
                 </div>
 
                 {/* Quantity & Actions */}
@@ -83,7 +83,7 @@ export default function CheckoutPage() {
           <div className="text-center py-12 bg-white dark:bg-zinc-800 rounded-lg">
             <p className="text-3xl mb-4">🛒</p>
             <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-4">Keranjang Anda kosong</p>
-            <Link href="/" className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+            <Link href="/" className="inline-block bg-accent-600 hover:bg-accent-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
               Lanjut Belanja
             </Link>
           </div>

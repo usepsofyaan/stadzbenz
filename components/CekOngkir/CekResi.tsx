@@ -70,11 +70,11 @@ export default function CekResi() {
             onChange={handleChange}
             placeholder="Contoh: 123456789"
             required
-            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
           />
         </div>
 
-        <button type="submit" disabled={loading} className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-400 text-white font-medium py-2 rounded-lg transition-colors">
+        <button type="submit" disabled={loading} className="w-full bg-accent-600 hover:bg-accent-700 disabled:bg-accent-400 text-white font-medium py-2 rounded-lg transition-colors">
           {loading ? "Melacak..." : "Lacak Paket"}
         </button>
       </form>

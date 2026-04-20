@@ -6,10 +6,10 @@ export default function About() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16 px-4">
+      <section className="bg-gradient-to-r from-primary-500 to-accent-500 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">{aboutStore.storeName}</h1>
-          <p className="text-xl text-orange-100">{aboutStore.tagline}</p>
+          <p className="text-xl text-primary-100">{aboutStore.tagline}</p>
         </div>
       </section>
 
@@ -39,7 +39,7 @@ export default function About() {
             <ul className="space-y-3">
               {aboutStore.mission.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 bg-accent-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   <span className="text-gray-600 dark:text-gray-300">{item}</span>
                 </li>
               ))}
@@ -54,7 +54,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {aboutStore.features.map((feature, index) => (
             <div key={index} className="bg-white dark:bg-zinc-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-orange-500 mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-bold text-accent-500 mb-2">{feature.title}</h3>
               <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </div>
           ))}
@@ -68,11 +68,11 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {aboutStore.team.map((member, index) => (
               <div key={index} className="bg-white dark:bg-zinc-800 rounded-lg shadow-md p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-accent-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-white font-bold text-2xl">{member.name.charAt(0)}</span>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3>
-                <p className="text-orange-500 font-semibold mb-2">{member.position}</p>
+                <p className="text-accent-500 font-semibold mb-2">{member.position}</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">{member.experience}</p>
               </div>
             ))}
@@ -86,19 +86,19 @@ export default function About() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Informasi Kontak</h2>
           <div className="space-y-4">
             <div className="flex items-start">
-              <span className="text-orange-500 font-bold w-24">Alamat:</span>
+              <span className="text-accent-500 font-bold w-24">Alamat:</span>
               <span className="text-gray-600 dark:text-gray-300">{aboutStore.location}</span>
             </div>
             <div className="flex items-start">
-              <span className="text-orange-500 font-bold w-24">Telepon:</span>
+              <span className="text-accent-500 font-bold w-24">Telepon:</span>
               <span className="text-gray-600 dark:text-gray-300">{aboutStore.phone}</span>
             </div>
             <div className="flex items-start">
-              <span className="text-orange-500 font-bold w-24">Email:</span>
+              <span className="text-accent-500 font-bold w-24">Email:</span>
               <span className="text-gray-600 dark:text-gray-300">{aboutStore.email}</span>
             </div>
             <div className="flex items-start">
-              <span className="text-orange-500 font-bold w-24">Jam Operasional:</span>
+              <span className="text-accent-500 font-bold w-24">Jam Operasional:</span>
               <div className="text-gray-600 dark:text-gray-300">
                 <p>Senin - Jumat: {aboutStore.operatingHours.weekday}</p>
                 <p>Sabtu - Minggu: {aboutStore.operatingHours.weekend}</p>

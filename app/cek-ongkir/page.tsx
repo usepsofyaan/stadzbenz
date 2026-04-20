@@ -19,7 +19,7 @@ export default function CekOngkirPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-zinc-100 dark:from-zinc-900 dark:to-zinc-800 pb-32">
+    <div className="min-h-screen bg-gradient-to-br from-accent-50 to-zinc-100 dark:from-zinc-900 dark:to-zinc-800 pb-32">
       {/* Header */}
       <div className="bg-white dark:bg-zinc-800 border-b border-zinc-200 dark:border-zinc-700 sticky top-0 z-10">
         <div className="max-w-2xl mx-auto px-4 py-6">
@@ -37,7 +37,7 @@ export default function CekOngkirPage() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
-                  activeTab === tab.id ? "bg-orange-600 text-white shadow-lg" : "bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-600"
+                  activeTab === tab.id ? "bg-accent-600 text-white shadow-lg" : "bg-zinc-100 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-600"
                 }`}
               >
                 <span className="text-lg">{tab.icon}</span>

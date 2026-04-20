@@ -68,7 +68,7 @@ export default function CekOngkos() {
               onChange={handleChange}
               placeholder="Contoh: Jakarta"
               required
-              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
           <div>
@@ -80,7 +80,7 @@ export default function CekOngkos() {
               onChange={handleChange}
               placeholder="Contoh: Cengkareng"
               required
-              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function CekOngkos() {
               onChange={handleChange}
               placeholder="Contoh: Bandung"
               required
-              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
           <div>
@@ -108,7 +108,7 @@ export default function CekOngkos() {
               onChange={handleChange}
               placeholder="Contoh: Cimahi"
               required
-              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function CekOngkos() {
               placeholder="1000"
               step="100"
               required
-              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
           <div>
@@ -134,7 +134,7 @@ export default function CekOngkos() {
               name="kurir"
               value={formData.kurir}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-accent-500"
             >
               <option value="jne">JNE</option>
               <option value="tiki">Tiki</option>
@@ -145,14 +145,14 @@ export default function CekOngkos() {
           </div>
         </div>
 
-        <button type="submit" disabled={loading} className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-400 text-white font-medium py-2 rounded-lg transition-colors">
+        <button type="submit" disabled={loading} className="w-full bg-accent-600 hover:bg-accent-700 disabled:bg-accent-400 text-white font-medium py-2 rounded-lg transition-colors">
           {loading ? "Mengecek..." : "Cek Ongkos Kirim"}
         </button>
       </form>
 
       {/* Hasil */}
       {result && (
-        <div className="mt-6 p-4 bg-orange-50 dark:bg-zinc-800 border border-orange-200 dark:border-zinc-700 rounded-lg">
+        <div className="mt-6 p-4 bg-accent-50 dark:bg-zinc-800 border border-accent-200 dark:border-zinc-700 rounded-lg">
           {result.error ? (
             <p className="text-red-600 dark:text-red-400">{result.error}</p>
           ) : (

@@ -60,7 +60,7 @@ export default function CekOngkirLokal() {
             onChange={handleChange}
             placeholder="Contoh: Jl. Merdeka No. 123"
             required
-            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
           />
         </div>
 
@@ -73,7 +73,7 @@ export default function CekOngkirLokal() {
             onChange={handleChange}
             placeholder="Contoh: Jl. Ahmad Yani No. 456"
             required
-            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
           />
         </div>
 
@@ -87,11 +87,11 @@ export default function CekOngkirLokal() {
             placeholder="1000"
             step="100"
             required
-            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent-500"
           />
         </div>
 
-        <button type="submit" disabled={loading} className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-400 text-white font-medium py-2 rounded-lg transition-colors">
+        <button type="submit" disabled={loading} className="w-full bg-accent-600 hover:bg-accent-700 disabled:bg-accent-400 text-white font-medium py-2 rounded-lg transition-colors">
           {loading ? "Mengecek..." : "Cek Ongkir Lokal"}
         </button>
       </form>
@@ -104,7 +104,7 @@ export default function CekOngkirLokal() {
           ) : (
             <div className="space-y-2">
               <h3 className="font-semibold text-zinc-900 dark:text-white">Hasil Cek Ongkir Lokal:</h3>
-              {result.biaya && <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">Rp {result.biaya.toLocaleString("id-ID")}</div>}
+              {result.biaya && <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">Rp {result.biaya.toLocaleString("id-ID")}</div>}
               {result.estimasi && <p className="text-sm text-zinc-600 dark:text-zinc-400">Estimasi: {result.estimasi}</p>}
               <pre className="text-xs text-zinc-600 dark:text-zinc-400 overflow-auto">{JSON.stringify(result, null, 2)}</pre>
             </div>
