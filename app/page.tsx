@@ -8,6 +8,7 @@ import SearchBar from "@/components/SearchBar";
 import MenuList from "@/components/MenuList";
 import CartIndicator from "@/components/CartIndicator";
 import PromoCarousel from "@/components/PromoCarousel";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,6 +44,8 @@ export default function Home() {
 
       {/* All Menu List */}
       <MenuList searchQuery={searchQuery} selectedCategory={selectedCategory} />
+
+      <Footer />
     </div>
   );
 }
