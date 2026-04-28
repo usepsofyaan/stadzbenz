@@ -8,6 +8,7 @@ export interface MenuItem {
   description: string;
   popular?: boolean;
   bestseller?: boolean;
+  isNew?: boolean;
 }
 
 export const menus: MenuItem[] = [
@@ -80,6 +81,7 @@ export const menus: MenuItem[] = [
     rating: 4.7,
     image: "/placeholder-8.jpg",
     description: "Nasi goreng dengan daging ayam, telur, kacang, sayuran, dan sambal pedas",
+    isNew: true,
   },
   {
     id: 9,
@@ -89,6 +91,7 @@ export const menus: MenuItem[] = [
     rating: 4.6,
     image: "/placeholder-9.jpg",
     description: "Lumpia goreng isi ayam, sayuran, dan telur, per 5 buah",
+    isNew: true,
   },
   {
     id: 10,
@@ -98,6 +101,7 @@ export const menus: MenuItem[] = [
     rating: 4.8,
     image: "/placeholder-10.jpg",
     description: "Martabak dengan isi gula, cokelat, telur, dan margarin, 1 porsi",
+    isNew: true,
   },
   {
     id: 11,
@@ -107,6 +111,7 @@ export const menus: MenuItem[] = [
     rating: 4.9,
     image: "/placeholder-11.jpg",
     description: "Rendang daging sapi dengan santan dan bumbu rempah yang mendalam",
+    isNew: true,
   },
   {
     id: 12,
@@ -116,6 +121,7 @@ export const menus: MenuItem[] = [
     rating: 4.8,
     image: "/placeholder-12.jpg",
     description: "Ikan bakar utuh dengan bumbu kuning, sambal matah, dan nasi putih",
+    isNew: true,
   },
 ];
 

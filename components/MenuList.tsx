@@ -26,21 +26,33 @@ export default function MenuList({ searchQuery, selectedCategory }: MenuListProp
     return result;
   }, [searchQuery, selectedCategory]);
 
+  // Filter for newest products
+  const newestProducts = menus.filter((item) => item.isNew).slice(0, 8);
+
+  // Determine which products to show
+  const isFilterActive = searchQuery || selectedCategory !== "Semua";
+  const productsToShow = isFilterActive ? filteredMenus : newestProducts;
+
   return (
-    <section className="px-4 py-8 pb-32">
+    <section className="px-4 py-8 pb-32 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-2">📋 Semua Menu</h2>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            {filteredMenus.length} menu tersedia {selectedCategory !== "Semua" && `di kategori ${selectedCategory}`}
+        <div className="mb-8">
+          {!isFilterActive && (
+            <div className="flex items-center gap-2 mb-2">
+              <span className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">✨ TERBARU</span>
+            </div>
+          )}
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-2">{isFilterActive ? "📋 Hasil Pencarian" : "Produk Terbaru"}</h2>
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg">
+            {isFilterActive ? `${filteredMenus.length} menu ditemukan ${selectedCategory !== "Semua" ? `di kategori ${selectedCategory}` : ""}` : "Produk terbaru yang baru saja ditambahkan ke menu kami"}
           </p>
         </div>
 
         {/* Menu Grid */}
-        {filteredMenus.length > 0 ? (
+        {productsToShow.length > 0 ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {filteredMenus.map((item) => (
+            {productsToShow.map((item) => (
               <MenuCard key={item.id} item={item} />
             ))}
           </div>
