@@ -7,6 +7,7 @@ import Categories from "@/components/Categories";
 import SearchBar from "@/components/SearchBar";
 import MenuList from "@/components/MenuList";
 import CartIndicator from "@/components/CartIndicator";
+import PromoCarousel from "@/components/PromoCarousel";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,6 +28,9 @@ export default function Home() {
 
       {/* Search Bar - Optimal Position */}
       <SearchBar onSearch={setSearchQuery} />
+
+      {/* Promo Carousel - Between Search & Featured Menu */}
+      <PromoCarousel />
 
       {/* Featured Menu */}
       <FeaturedMenu />
