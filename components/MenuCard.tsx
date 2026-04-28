@@ -18,7 +18,10 @@ export default function MenuCard({ item }: MenuCardProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow">
+    <div className="bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow relative">
+      {/* Bestseller Badge */}
+      {item.bestseller && <div className="absolute top-2 right-2 z-10 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">🔥 Terlaris</div>}
+
       {/* Image Placeholder */}
       <div className="w-full h-48 bg-gradient-to-br from-accent-100 to-accent-200 dark:from-primary-700 dark:to-primary-600 flex items-center justify-center overflow-hidden">
         <div className="text-6xl">🍲</div>
