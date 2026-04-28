@@ -25,6 +25,9 @@ export default function Home() {
       {/* Hero Banner */}
       <HeroBanner />
 
+      {/* Search Bar - Optimal Position */}
+      <SearchBar onSearch={setSearchQuery} />
+
       {/* Featured Menu */}
       <FeaturedMenu />
 
@@ -33,9 +36,6 @@ export default function Home() {
 
       {/* Categories */}
       <Categories onSelectCategory={setSelectedCategory} />
-
-      {/* Search Bar */}
-      <SearchBar onSearch={setSearchQuery} />
 
       {/* All Menu List */}
       <MenuList searchQuery={searchQuery} selectedCategory={selectedCategory} />
