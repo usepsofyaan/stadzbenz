@@ -1,6 +1,7 @@
 import { MenuItem } from "@/data/menus";
 import { useCartStore } from "@/stores/cartStore";
 import { useState } from "react";
+import Image from "next/image";
 
 interface MenuCardProps {
   item: MenuItem;
@@ -9,6 +10,7 @@ interface MenuCardProps {
 export default function MenuCard({ item }: MenuCardProps) {
   const addToCart = useCartStore((state) => state.addToCart);
   const [isAdded, setIsAdded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleAddToCart = () => {
     addToCart(item, 1);
@@ -27,9 +29,9 @@ export default function MenuCard({ item }: MenuCardProps) {
         {item.isNew && <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">✨ BARU</div>}
       </div>
 
-      {/* Image Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-br from-accent-100 to-accent-200 dark:from-primary-700 dark:to-primary-600 flex items-center justify-center overflow-hidden">
-        <div className="text-6xl">🍲</div>
+      {/* Image Container */}
+      <div className="w-full h-48 bg-gradient-to-br from-accent-100 to-accent-200 dark:from-primary-700 dark:to-primary-600 flex items-center justify-center overflow-hidden relative">
+        {!imageError && item.image ? <Image src={item.image} alt={item.name} fill className="object-cover" onError={() => setImageError(true)} /> : <div className="text-6xl">🍲</div>}
       </div>
 
       {/* Content */}
