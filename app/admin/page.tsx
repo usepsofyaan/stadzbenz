@@ -14,6 +14,7 @@ export default function AdminPage() {
   const [showForm, setShowForm] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [loadingProducts, setLoadingProducts] = useState(true);
+  const [notification, setNotification] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   useEffect(() => {
     checkAuth();
@@ -29,14 +30,23 @@ export default function AdminPage() {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    if (notification) {
+      const timer = setTimeout(() => setNotification(null), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
+
   const fetchProducts = async () => {
     setLoadingProducts(true);
     try {
       const response = await fetch("/api/admin/products");
+      if (!response.ok) throw new Error("Failed to fetch");
       const data = await response.json();
       setProducts(data);
     } catch (error) {
       console.error("Failed to fetch products:", error);
+      setNotification({ type: "error", message: "Gagal memuat produk" });
     } finally {
       setLoadingProducts(false);
     }
@@ -56,20 +66,25 @@ export default function AdminPage() {
     fetchProducts();
     setShowForm(false);
     setEditingProduct(null);
+    setNotification({ type: "success", message: "Produk berhasil disimpan" });
   };
 
   const handleDeleteProduct = async (id: string) => {
-    if (confirm("Apakah Anda yakin ingin menghapus produk ini?")) {
-      try {
-        const response = await fetch(`/api/admin/products/${id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          fetchProducts();
-        }
-      } catch (error) {
-        console.error("Failed to delete product:", error);
+    try {
+      const response = await fetch(`/api/admin/products/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Gagal menghapus produk");
       }
+
+      setProducts(products.filter((p) => p.id !== id));
+      setNotification({ type: "success", message: "Produk berhasil dihapus" });
+    } catch (error: any) {
+      console.error("Failed to delete product:", error);
+      setNotification({ type: "error", message: error.message || "Gagal menghapus produk" });
     }
   };
 
@@ -92,6 +107,9 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Notification */}
+      {notification && <div className={`fixed top-4 right-4 px-6 py-3 rounded-lg text-white z-50 ${notification.type === "success" ? "bg-green-500" : "bg-red-500"}`}>{notification.message}</div>}
+
       {/* Header */}
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
