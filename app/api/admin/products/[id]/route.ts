@@ -41,20 +41,29 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
   try {
     const { id } = await context.params;
 
-    const { data, error } = await supabase.from("products").delete().eq("id", id).select();
-
-    if (error) {
-      console.error("Supabase error:", error);
-      return NextResponse.json({ message: "Gagal menghapus produk" }, { status: 500 });
+    if (!id) {
+      return NextResponse.json({ message: "ID produk tidak valid" }, { status: 400 });
     }
 
-    if (!data || data.length === 0) {
+    // First check if product exists
+    const { data: existingProduct, error: checkError } = await supabase.from("products").select("id").eq("id", id).single();
+
+    if (checkError || !existingProduct) {
+      console.error("Product not found:", checkError);
       return NextResponse.json({ message: "Produk tidak ditemukan" }, { status: 404 });
     }
 
-    return NextResponse.json({ message: "Produk berhasil dihapus" });
-  } catch (error) {
+    // Then delete
+    const { error: deleteError } = await supabase.from("products").delete().eq("id", id);
+
+    if (deleteError) {
+      console.error("Supabase delete error:", deleteError);
+      return NextResponse.json({ message: "Gagal menghapus produk", error: deleteError.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ message: "Produk berhasil dihapus", success: true });
+  } catch (error: any) {
     console.error("Error:", error);
-    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
+    return NextResponse.json({ message: "Internal server error", error: error.message }, { status: 500 });
   }
 }

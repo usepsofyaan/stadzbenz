@@ -1,4 +1,5 @@
 import { Product } from "@/types";
+import { useState } from "react";
 
 interface ProductListProps {
   products: Product[];
@@ -7,6 +8,19 @@ interface ProductListProps {
 }
 
 export default function ProductList({ products, onEdit, onDelete }: ProductListProps) {
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const handleDeleteClick = async (productId: string) => {
+    if (confirm("Apakah Anda yakin ingin menghapus produk ini?")) {
+      setDeletingId(productId);
+      try {
+        await onDelete(productId);
+      } finally {
+        setDeletingId(null);
+      }
+    }
+  };
+
   if (products.length === 0) {
     return (
       <div className="bg-white rounded-lg shadow p-8 text-center">
@@ -49,11 +63,19 @@ export default function ProductList({ products, onEdit, onDelete }: ProductListP
                 <td className="px-6 py-4 text-sm text-gray-600">{product.category}</td>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Rp {product.price?.toLocaleString("id-ID")}</td>
                 <td className="px-6 py-4 text-sm space-x-2">
-                  <button onClick={() => onEdit(product)} className="inline-block px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition text-xs">
+                  <button
+                    onClick={() => onEdit(product)}
+                    disabled={deletingId !== null}
+                    className="inline-block px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition text-xs"
+                  >
                     Edit
                   </button>
-                  <button onClick={() => onDelete(product.id)} className="inline-block px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition text-xs">
-                    Hapus
+                  <button
+                    onClick={() => handleDeleteClick(product.id)}
+                    disabled={deletingId !== null}
+                    className="inline-block px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition text-xs"
+                  >
+                    {deletingId === product.id ? "Menghapus..." : "Hapus"}
                   </button>
                 </td>
               </tr>
